@@ -1,0 +1,82 @@
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+}
+
+
+html {
+  height: 100%;
+  // box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+  min-width: 1300px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  outline: none;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+li, ol, ul {
+  list-style: none;
+}
+
+a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, input, label, li, nav, p, select, span, td, textarea, u, ul {
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #c1c1c1;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #fff;
+ border-radius: 0;
+}  
