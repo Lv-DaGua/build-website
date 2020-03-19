@@ -9,7 +9,7 @@
         <el-input class="input" placeholder="请输入密码" v-model="form.pwd"></el-input>
       </el-form-item>
       <div>
-        <el-button class="btn" round>登 录</el-button>
+        <el-button class="btn" round @click="handleLogin">登 录</el-button>
       </div>
       <div class="bottom">
         <span>还没有账号？<span class="text-btn" @click="toRegister">去注册一个吧</span></span>
@@ -33,6 +33,10 @@ export default {
   methods: {
     toRegister(){
       this.$emit('change', 'register');
+    },
+
+    handleLogin(){
+      this.$router.push({path: '/user'})
     }
   }
  

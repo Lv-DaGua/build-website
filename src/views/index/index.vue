@@ -17,7 +17,8 @@
             Everyone can be a website builder
           </div>
           <div class="row3">
-            <el-button class="start-btn" >立即开启</el-button>
+            <!-- <el-button class="start-btn" >立即开启</el-button> -->
+            <div class="pan-btn red-btn">立即 开启</div>
           </div>
         </div>
         <div class="right">
