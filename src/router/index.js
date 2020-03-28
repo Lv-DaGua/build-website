@@ -25,6 +25,11 @@ const routes = [
       }
     ]
   },
+  {
+    path: '/buildingDiy',
+    name: 'buildingDiy',
+    component: () => import('@/views/buildingDIY/index.vue')
+  },
 ]
 
 const router = new VueRouter({

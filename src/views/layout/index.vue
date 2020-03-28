@@ -45,7 +45,9 @@
     </section>
     <!-- 导航路由主体内容 -->
     <article class="article">
-      <router-view></router-view>
+      <transition name="fade-transform" mode="out-in">
+        <router-view></router-view>
+      </transition>
     </article>
   </div>
 </template>

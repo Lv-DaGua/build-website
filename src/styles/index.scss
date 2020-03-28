@@ -82,6 +82,55 @@ a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, in
  border-radius: 0;
 }  
 
+:focus{
+  outline: 0 !important;
+}
+
+// 全部组件的统一样式
+.component-global{
+  position: absolute;
+  overflow: hidden;
+  &:hover{
+    outline: 2px dashed #4ab7bd;
+    .set-modal-global{
+      opacity: .9;
+    }
+    .set-btn-global{
+      display: block;
+    }
+  }
+  // 遮罩层
+  .set-modal-global{
+    position: absolute;
+    width: 101%;
+    height: 101%;
+    left: 0;
+    top: 0;
+    background: #fff;
+    opacity: 0;
+  }
+  // 设置按钮
+  .set-btn-global{
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #4ab7bd;
+    border-color: #4ab7bd;
+
+    &:hover{
+      background: #7ddde2;
+      border-color: #7ddde2;
+    }
+    &:active{
+      background: #4ab7bd;
+      border-color: #4ab7bd;
+    }
+  }
+}
+
 // 按钮
 @mixin colorBtn($color) {
   background: $color;
@@ -140,4 +189,7 @@ a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, in
 
 .red-btn {
   @include colorBtn(#e93a5d)
+}
+.green-btn{
+  @include colorBtn(#4ab7bd)
 }
