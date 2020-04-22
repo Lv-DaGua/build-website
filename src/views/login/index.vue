@@ -7,7 +7,7 @@
       :close-on-click-modal="false"
     >
       <div class="t1">Welcome</div>
-      <component :is="curCom" @change="handleType"></component>
+      <component :is="curCom" @change="handleType" :default-username="username"></component>
       <footer class="t2">
         <i class="el-icon-coffee-cup icon"></i>. W Builder
       </footer>
@@ -36,6 +36,7 @@ export default {
     return {
       show: this.visible,
       type: 'login',
+      username: '',
     }
   },
 
@@ -63,8 +64,9 @@ export default {
   },
 
   methods: {
-    handleType(type){
+    handleType(type, username){
       this.type = type;
+      this.username = username;
     }
   }
  

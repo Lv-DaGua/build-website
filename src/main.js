@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './permission.js'
 
 import '@/styles/index.scss'
+import '@/styles/element-variables.scss'
 
 Vue.use(ElementUI)
 

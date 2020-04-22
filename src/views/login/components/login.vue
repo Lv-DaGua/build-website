@@ -3,10 +3,10 @@
     <div class="title">—— 登 录 ——</div>
     <el-form ref="form" :model="form">
       <el-form-item>
-        <el-input class="input" placeholder="请输入账号" v-model="form.account"></el-input>
+        <el-input class="input" placeholder="请输入账号" v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input class="input" placeholder="请输入密码" v-model="form.pwd"></el-input>
+        <el-input class="input" type="password" placeholder="请输入密码" v-model="form.password"></el-input>
       </el-form-item>
       <div>
         <el-button class="btn" round @click="handleLogin">登 录</el-button>
@@ -18,16 +18,29 @@
   </div>
 </template>
 <script>
+import { login } from '@/api/user'
+import { setToken } from '@/utils/auth'
 export default {
   name: 'login',
+
+  props: {
+    defaultUsername: {
+      type: String,
+      default: ''
+    }
+  },
  
   data () {
     return {
       form: {
-        account: '',
-        pwd: ''
+        username: '',
+        password: ''
       }
     }
+  },
+
+  created(){
+    this.form.username = this.defaultUsername;
   },
 
   methods: {
@@ -35,8 +48,17 @@ export default {
       this.$emit('change', 'register');
     },
 
-    handleLogin(){
-      this.$router.push({path: '/user'})
+    async handleLogin(){
+      this.loading = true;
+      const res = await login(this.form);
+      this.loading = false;
+      if(res.code === 10000){
+        this.$message.success('登录成功');
+        setToken(res.data.token);
+        this.$router.push({path: '/user'})
+      }else{
+        this.$message.error(res.msg);
+      }
     }
   }
  

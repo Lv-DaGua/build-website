@@ -18,11 +18,28 @@ const routes = [
       {
         path: 'buildDiy',
         name: 'buildDiy',
-        component: () => import('../views/navBuildDIY/index.vue'),
+        component: () => import('@/views/navBuildDIY/index.vue'),
         meta: {
           title: '自定义建站',
         }
-      }
+      },
+      {
+        path: 'myWeb',
+        name: 'myWeb',
+        component: () => import('@/views/navMyWeb/index.vue'),
+        meta: {
+          title: '我的作品',
+        }
+      },
+      {
+        path: 'myDraft',
+        name: 'myDraft',
+        component: () => import('@/views/navMyDraft/index.vue'),
+        meta: {
+          title: '我的草稿',
+        }
+      },
+
     ]
   },
   {
@@ -30,10 +47,16 @@ const routes = [
     name: 'buildingDiy',
     component: () => import('@/views/buildingDIY/index.vue')
   },
+  {
+    path: '/web',
+    name: 'web',
+    component: () => import('@/views/web/index.vue')
+  },
 ]
 
 const router = new VueRouter({
   routes
 })
+
 
 export default router

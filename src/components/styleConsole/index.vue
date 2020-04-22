@@ -5,18 +5,33 @@
       :key="i"
       :is="item"
       :com-ops="comOps"
+      :type="type"
       @change="updateStyleOps"
+      @change-text="updateText"
+      @change-css="updateCss"
+      @change-class=updateClass
+      @change-url="updateImgURL"
     >
     </component>
   </div>
 </template>
 <script>
 import basic from './components/basic'
+import background from './components/background'
+import padding from './components/padding'
+import border from './components/border'
+import textContent from './components/textContent'
+import uploadImg from './components/uploadImg'
 export default {
   name: 'styleConsole',
 
   components: {
     basic,
+    background,
+    padding,
+    border,
+    textContent,
+    uploadImg
   },
 
   props: {
@@ -41,7 +56,13 @@ export default {
     styleComponentItems(){
       switch (this.type) {
         case 'container':
-          return ['basic']
+          return ['basic', 'background', 'padding', 'border', 'textContent']
+          break;
+        case 'textContainer':
+          return ['basic', 'textContent']
+          break;
+        case 'imgContainer':
+          return ['basic', 'uploadImg']
           break;
         default:
           break;
@@ -64,10 +85,31 @@ export default {
   },
 
   methods: {
+    // 更新文本内容
+    updateText(text){
+      this.$emit('change-text', text);
+    },
+
+    // 修改css片段
+    updateCss(isAppend, cssTypeName){
+      this.$emit('change-css', isAppend, cssTypeName);
+    },
+
+    updateClass(isAppend, className){
+      this.$emit('change-class', isAppend, className);
+    },
+
+    updateImgURL(url){
+      this.$emit('change-url', url)
+    },
+
+    // 更新样式对象
     updateStyleOps(updateItem){
 
       if(Array.isArray(updateItem)){
-
+        updateItem.forEach((item) => {
+          this.deepEach(this.ops, item)
+        })
       }else{
         this.deepEach(this.ops, updateItem)
       }
@@ -113,6 +155,7 @@ export default {
 </style>
 <style lang='scss' scoped>
 .style-console{
-
+  max-height: 400px;
+  overflow-y: auto;
 }
 </style>

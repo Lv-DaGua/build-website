@@ -17,21 +17,21 @@
             @select="handleSelect"
           >
             <el-submenu index="1">
-              <template slot="title">功能中心</template>
-              <el-menu-item index="2-1">自定义建站</el-menu-item>
-              <el-menu-item index="/user/buildDiy">模板建站</el-menu-item>
+              <template slot="title">开始搭建</template>
+              <el-menu-item index="2-1">模板建站</el-menu-item>
+              <el-menu-item index="/user/buildDiy">自定义建站</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <template slot="title">我的地盘</template>
-              <el-menu-item index="2-1">我的作品</el-menu-item>
-              <el-menu-item index="2-2">我的草稿</el-menu-item>
+              <el-menu-item index="/user/myWeb">我的作品</el-menu-item>
+              <el-menu-item index="/user/myDraft">我的草稿</el-menu-item>
             </el-submenu>
           </el-menu>
           <section class="info">
             <div class="img">
               <img src="https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif?imageView2/1/w/80/h/80" alt="">
             </div>
-            <div class="name">username</div>
+            <div class="name">{{username}}</div>
           </section>
         </section>
       </div>
@@ -59,6 +59,12 @@ export default {
     return {
       path: '',
       breadcrumbTxt: '',
+    }
+  },
+
+  computed: {
+    username(){
+      return this.$store.state.username
     }
   },
 

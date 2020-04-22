@@ -3,11 +3,16 @@ $mainC: #223247;
 $bgc: #223247;
 $green: #4ab7bd;
 $line-c: #E8ECEF;
+/** 状态色*/
+$success-c: rgb(20, 168, 99);
+$warning-c: #FFC062;
+$error-c: #DF163E;
 
 $fc0: rgb(14, 24, 46);
 $fc1: #2c3e50;
 $fc2: #808080;
+$fc3: #C0C4CC;
 
 
 // 规格大小
-$cw: 1150px; // 用户管理中心的宽度
+$cw: 1100px; // 用户管理中心的宽度

@@ -74,7 +74,7 @@ a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, in
 }
 ::-webkit-scrollbar-thumb {
   height: 50px;
-  background-color: #c1c1c1;
+  background-color: #dedfe0;
   border-radius: 5px;
 }
 ::-webkit-scrollbar-track-piece {
@@ -89,34 +89,40 @@ a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, in
 // 全部组件的统一样式
 .component-global{
   position: absolute;
-  overflow: hidden;
-  &:hover{
+  // overflow: hidden;
+  box-sizing: border-box;
+  white-space: pre-line;
+  &.is-edit:hover{
     outline: 2px dashed #4ab7bd;
     .set-modal-global{
       opacity: .9;
     }
-    .set-btn-global{
-      display: block;
+    .com-btn-global{
+      // display: block;
+      display: flex;
     }
   }
   // 遮罩层
   .set-modal-global{
     position: absolute;
-    width: 101%;
-    height: 101%;
+    width: 100%;
+    height: 100%;
     left: 0;
     top: 0;
     background: #fff;
     opacity: 0;
+    cursor: pointer;
   }
   // 设置按钮
-  .set-btn-global{
+  .com-btn-global{
     display: none;
     position: absolute;
     z-index: 9999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  .set-btn-global{
     background: #4ab7bd;
     border-color: #4ab7bd;
 
@@ -129,6 +135,52 @@ a, b, body, button, dd, div, dl, em, footer, form, h1, h2, h3, h4, h5, h6, i, in
       border-color: #4ab7bd;
     }
   }
+}
+
+@mixin click {
+  &:hover{
+    opacity: .7;
+  }
+  &:active{
+    opacity: 1;
+  }
+}
+
+// 全局更改弹出确认框样式
+.el-message-box{
+  width: 400px;
+  .el-message-box__header{
+    padding: 20px 0 12px 0;
+    text-align: center;
+    .el-message-box__title{
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+  .el-message-box__btns{
+    text-align: center;
+    padding-bottom: 14px;
+    >button{
+      width: 96px;
+      @include click;
+      &:first-child{
+        background: #fff;
+        border-color: #DCDFE6;
+        &:hover{
+          color: #606266;
+        }
+      }
+      &:last-child{
+        background: $mainC;
+        border-color: $mainC;
+      }
+    }
+  }
+}
+
+// 弹出窗dialog全局更改
+.el-dialog__wrapper{
+  overflow: hidden !important;
 }
 
 // 按钮

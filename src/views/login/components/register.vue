@@ -6,26 +6,28 @@
         <el-input class="input" placeholder="请输入手机号" v-model="form.account"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input class="input" placeholder="请输入密码" v-model="form.pwd"></el-input>
+        <el-input class="input" type="password" placeholder="请输入密码" v-model="form.pwd"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-input class="input" placeholder="再次确认密码" v-model="form.repwd"></el-input>
+        <el-input class="input" type="password" placeholder="再次确认密码" v-model="form.repwd"></el-input>
       </el-form-item>
       <div>
-        <el-button class="btn" round>注 册</el-button>
+        <el-button class="btn" round @click="handleRegister" :loading="loading">注 册</el-button>
       </div>
       <div class="bottom">
-        <span>已有账号？<span class="text-btn" @click="toLogin">直接登录</span></span>
+        <span>已有账号？<span class="text-btn" @click="toLogin()">直接登录</span></span>
       </div>
     </el-form>
   </div>
 </template>
 <script>
+import { register } from '@/api/user'
 export default {
   name: 'register',
  
   data () {
     return {
+      loading: false,
       form: {
         account: '',
         pwd: '',
@@ -35,8 +37,22 @@ export default {
   },
 
   methods: {
-    toLogin(){
-      this.$emit('change', 'login')
+    toLogin(name = ''){
+      this.$emit('change', 'login', name);
+    },
+
+    async handleRegister(){
+      const data = {
+        username: this.form.account,
+        password: this.form.pwd
+      }
+      this.loading = true;
+      const res = await register(data);
+      this.loading = false;      
+      if(res.code === 10000){
+        this.$message.success('注册成功');
+        this.toLogin(res.data.username);
+      }      
     }
   }
  

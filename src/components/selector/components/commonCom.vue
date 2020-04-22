@@ -50,7 +50,7 @@ export default {
     display: flex;
     margin: 2px;
     margin-bottom: 6px;
-    border-bottom: 1px solid $line-c;
+    // border-bottom: 1px solid $line-c;
     border-radius: 4px;
     cursor: pointer;
     &:hover{
