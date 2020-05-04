@@ -55,7 +55,7 @@ export default {
       if(res.code === 10000){
         this.$message.success('登录成功');
         setToken(res.data.token);
-        this.$router.push({path: '/user'})
+        this.$router.push({path: '/user/myWeb'})
       }else{
         this.$message.error(res.msg);
       }

@@ -19,6 +19,7 @@ import { getWebInfo } from '@/api/web'
 import container from '@/components/container/index'
 import textContainer from '@/components/textContainer/index'
 import imgContainer from '@/components/imgContainer/index'
+import carousel from '@/components/carousel/index'
 export default {
   name: 'web',
  
@@ -26,6 +27,7 @@ export default {
     container,
     textContainer,
     imgContainer,
+    carousel
   },
 
   data () {

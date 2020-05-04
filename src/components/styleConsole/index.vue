@@ -11,6 +11,7 @@
       @change-css="updateCss"
       @change-class=updateClass
       @change-url="updateImgURL"
+      @change-content="updateContent"
     >
     </component>
   </div>
@@ -22,6 +23,7 @@ import padding from './components/padding'
 import border from './components/border'
 import textContent from './components/textContent'
 import uploadImg from './components/uploadImg'
+import carouselItem from './components/carouselItem'
 export default {
   name: 'styleConsole',
 
@@ -31,7 +33,8 @@ export default {
     padding,
     border,
     textContent,
-    uploadImg
+    uploadImg,
+    carouselItem
   },
 
   props: {
@@ -64,6 +67,8 @@ export default {
         case 'imgContainer':
           return ['basic', 'uploadImg']
           break;
+        case 'carousel':
+          return ['basic', 'carouselItem']
         default:
           break;
       }
@@ -101,6 +106,10 @@ export default {
 
     updateImgURL(url){
       this.$emit('change-url', url)
+    },
+
+    updateContent(content){
+      this.$emit('change-content', content)
     },
 
     // 更新样式对象

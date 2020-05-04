@@ -57,6 +57,7 @@
         @change-css="updateCss"
         @change-class="updateClass"
         @change-url="updateImgURL"
+        @change-content="updateCarouselContent"
         :com-ops="curEditCom.ops"
         :type="curEditCom.type"
       />
@@ -188,6 +189,7 @@ import { uploadImg } from '@/api/buildingDiy'
 import container from '@/components/container/index'
 import textContainer from '@/components/textContainer/index'
 import imgContainer from '@/components/imgContainer/index'
+import carousel from '@/components/carousel/index'
 
 export default {
   name: 'buildingDIY',
@@ -199,7 +201,8 @@ export default {
     selector,
     container,
     textContainer,
-    imgContainer
+    imgContainer,
+    carousel
   },
  
   data () {
@@ -341,6 +344,10 @@ export default {
 
     updateImgURL(url){
       this.curEditCom.ops.url = url;
+    },
+
+    updateCarouselContent(content){
+      this.curEditCom.ops.content = content
     },
 
     handleAddCommonCom(com){

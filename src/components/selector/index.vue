@@ -6,7 +6,7 @@
         <common-com @select="handleSelect"/>
       </el-tab-pane>
       <el-tab-pane label="定制组件" name="second">
-        <custom-com/>
+        <custom-com @select="handleSelect"/>
       </el-tab-pane>
     </el-tabs>
   </div>
