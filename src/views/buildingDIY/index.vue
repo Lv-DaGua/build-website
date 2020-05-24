@@ -28,6 +28,13 @@
           </div>
         </component>
       </template>
+
+      <!-- 页面为空时 -->
+      <section class="empty" v-if="compList.length === 0">
+        <div><i class="el-icon-top-right empty-icon"></i>第一步：点击屏幕右侧按钮<img class="empty-img" src="../../assets/tishi-1.png"/>，选择一个组件添加到页面</div>
+        <div><i class="el-icon-edit empty-icon"></i>第二步：点击页面组件的编辑按钮<img class="empty-img" src="../../assets/tishi-2.png"/>，自己DIY组件的样式</div>
+        <div><i class="el-icon-bottom-right empty-icon"></i>第三步：点击屏幕下方按钮<img class="empty-img" src="../../assets/tishi-3.png"/>，拉起操作栏，完成创作！</div>
+      </section>
     </article>
 
     <!-- 选择器开关 -->
@@ -40,7 +47,7 @@
 
     <!-- 控制台 -->
     <el-dialog 
-      title="Shipping address" 
+      title="控制器" 
       v-el-drag-dialog 
       width="420px"
       custom-class="console-dialog"
@@ -512,6 +519,25 @@ export default {
 
   .building-content{
     min-height: 100vh;
+  }
+
+  .empty{
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%);
+    opacity: .5;
+    >div{
+      margin-bottom: 16px;
+    }
+    &-img{
+      vertical-align: middle;
+    }
+    &-icon{
+      font-size: 40px;
+      color: #1b6ace;
+      margin-right: 8px;
+    }
   }
 
   .selector-btn{

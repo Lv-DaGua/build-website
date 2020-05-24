@@ -16,11 +16,11 @@
             active-text-color="#fff"
             @select="handleSelect"
           >
-            <el-submenu index="1">
+            <el-menu-item index="/user/buildDiy">开始搭建 <i style="font-size: 14px;vertical-align: baseline;" class="el-icon-coffee-cup"></i></el-menu-item>
+            <!-- <el-submenu index="1">
               <template slot="title">开始搭建</template>
               <el-menu-item index="2-1">模板建站</el-menu-item>
-              <el-menu-item index="/user/buildDiy">自定义建站</el-menu-item>
-            </el-submenu>
+            </el-submenu> -->
             <el-submenu index="2">
               <template slot="title">我的地盘</template>
               <el-menu-item index="/user/myWeb">我的作品</el-menu-item>

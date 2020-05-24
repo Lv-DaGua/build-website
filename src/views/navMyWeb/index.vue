@@ -2,7 +2,7 @@
   <div class="nav-my-web">
     <section>
       <div class="title">
-        我的自定义网站
+        我的网站
       </div>
       <ul class="web">
         <li
@@ -30,8 +30,12 @@
           </div>
         </li>
       </ul>
+      <section class="empty" v-if="diyList.length === 0">
+        <img src="../../assets/empty_data.png" alt="">
+        <div>暂无任何作品信息，点击顶部导航条开始搭建进行创作吧<i class="el-icon-thumb el-icon--right"></i></div>
+      </section>
     </section>
-    <section class="template">
+    <!-- <section class="template">
       <div class="container">
         <div class="title">我的模板网站</div>
         <ul class="web">
@@ -49,7 +53,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script>
@@ -165,6 +169,7 @@ export default {
         height: 130px;
         overflow: hidden;
         border-bottom: 1px solid $line-c;
+        border-radius: 4px 4px 0px 0px;
         >img{
           width: 100%;
           height: auto;
@@ -199,6 +204,16 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .empty{
+    text-align: center;
+    padding-top: 40px;
+    color: $fc3;
+    >img{
+      width: 200px;
+      margin-bottom: 8px;
     }
   }
 

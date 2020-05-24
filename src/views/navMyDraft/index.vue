@@ -2,7 +2,7 @@
   <div class="nav-my-draft">
     <section>
       <div class="title">
-        我的自定义网站草稿<i class="el-icon-edit-outline el-icon--right"></i>
+        我的草稿<i class="el-icon-edit-outline el-icon--right"></i>
       </div>
       <ul class="web">
         <li
@@ -39,8 +39,12 @@
           </div>
         </li>
       </ul>
+      <section class="empty" v-if="diyList.length === 0">
+        <img src="../../assets/empty_data.png" alt="">
+        <div>暂无任何草稿信息，点击顶部导航条开始搭建进行创作吧<i class="el-icon-thumb el-icon--right"></i></div>
+      </section>
     </section>
-    <section class="template">
+    <!-- <section class="template">
       <div class="container">
         <div class="title">我的模板网站草稿<i class="el-icon-edit-outline el-icon--right"></i></div>
         <ul class="web">
@@ -58,7 +62,7 @@
           </li>
         </ul>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script>
@@ -209,6 +213,16 @@ export default {
           }
         }
       }
+    }
+  }
+
+  .empty{
+    text-align: center;
+    padding-top: 40px;
+    color: $fc3;
+    >img{
+      width: 200px;
+      margin-bottom: 8px;
     }
   }
 

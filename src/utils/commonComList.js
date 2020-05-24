@@ -4,7 +4,7 @@ const coms = [
     name: 'container',
     title: '普通容器',
     desc: '可自由定制容器块的宽度，高度，背景颜色等等..',
-    img: require('@/assets/logo.png'),
+    img: require('@/assets/com-1.png'),
     defaultOps: {
       cid: null,
       type: 'container',
@@ -35,7 +35,7 @@ const coms = [
     name: 'textContainer',
     title: '文本框',
     desc: '可在页面上随意添加文本信息',
-    img: require('@/assets/logo.png'),
+    img: require('@/assets/com-2.png'),
     defaultOps: {
       cid: null,
       type: 'textContainer',
@@ -60,7 +60,7 @@ const coms = [
     name: 'imgContainer',
     title: '图片框',
     desc: '可在页面上展示图片',
-    img: require('@/assets/logo.png'),
+    img: require('@/assets/com-3.png'),
     defaultOps: {
       cid: null,
       type: 'imgContainer',

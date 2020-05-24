@@ -4,7 +4,7 @@ const coms = [
     name: 'carousel',
     title: '跑马灯',
     desc: '可循环播放内容',
-    img: require('@/assets/logo.png'),
+    img: require('@/assets/com-c-1.png'),
     defaultOps: {
       cid: null,
       type: 'carousel',
